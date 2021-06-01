@@ -1,0 +1,23 @@
+.tempcolor{
+    background-color: #6A23B5 !important;
+}
+
+.linkcolor{
+    background-color: #6A23B5 !important;
+    transition-duration: 1s;
+    color: white;
+}
+
+.linkcolor:hover{
+    background-color: #2BE6AB !important;
+    color: black !important;
+}
+
+
+.dashbtn{
+    background-color: #2BE6AB !important;
+    border: none;
+    border-radius: 10px;
+    display: flex; 
+    align-items: center;
+}
