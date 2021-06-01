@@ -21,8 +21,5 @@
             {{-- <div class="col-12 d-flex"></div> --}}
             <p>{{$pageServices->links()}}</p>
         </div>
-        <div class="text-center">
-            <a href="" class="site-btn">Browse</a>
-        </div>
     </div>
 </div>

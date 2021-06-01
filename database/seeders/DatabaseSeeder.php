@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
             VideoSeeder::class,
             ServiceSeeder::class,
             TestimonialSeeder::class,
+            DiscoverSeeder::class,
+            FeatureSeeder::class,
+            MapSeeder::class,
         ]);
     }
 }

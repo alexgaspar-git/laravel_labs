@@ -39,6 +39,6 @@
 	<script src="{{asset('js/circle-progress.min.js')}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
-    <script src="{{asset('js/map.js')}}"></script> 
+	<script src="{{asset('js/map.js')}}"></script> 
 </body>
 </html>
