@@ -1,6 +1,8 @@
 @extends('layouts.labs')
 
 @section('content')
+    @include('partials.home.preloader')
+    @include('partials.home.header')
     @include('partials.home.intro')
     @include('partials.home.about')
     @include('partials.home.testimonial')

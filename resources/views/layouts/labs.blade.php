@@ -28,8 +28,6 @@
 
 </head>
 <body>
-	@include('partials.preloader')
-	@include('partials.header')
     @yield('content')
 	@include('partials.footer')
 	<script src="{{asset('js/jquery-2.1.4.min.js')}}"></script>

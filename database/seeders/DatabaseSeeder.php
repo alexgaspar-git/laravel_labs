@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             DiscoverSeeder::class,
             FeatureSeeder::class,
             MapSeeder::class,
+            ImageSeeder::class,
+            LogoSeeder::class,
         ]);
     }
 }
