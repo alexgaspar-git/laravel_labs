@@ -23,6 +23,11 @@ class DatabaseSeeder extends Seeder
             MapSeeder::class,
             ImageSeeder::class,
             LogoSeeder::class,
+            ContactSeeder::class,
+            TitleSeeder::class,
+            RoleSeeder::class,
+            JobSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
