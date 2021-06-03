@@ -5,5 +5,5 @@
     @include('partials.contact.header')
     @include('partials.contact.pageheader')
     @include('partials.contact.map')
-    @include('partials.contact.contact')
+    @include('partials.contact')
 @endsection

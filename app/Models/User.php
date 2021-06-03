@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
     
     public function post(){
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Post::class);
     }
     public function job(){
         return $this->belongsTo(Job::class);

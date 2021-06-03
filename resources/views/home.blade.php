@@ -9,5 +9,5 @@
     @include('partials.home.service')
     @include('partials.home.team')
     @include('partials.home.promotion')
-    @include('partials.home.contact')
+    @include('partials.contact')
 @endsection

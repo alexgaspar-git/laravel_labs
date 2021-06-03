@@ -17,8 +17,12 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->text('text');
             $table->string('title');
+            $table->string('dateDay');
+            $table->string('dateMonth');
+            $table->string('dateYear');
             $table->string('img');
             $table->foreignId('category_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('comment_id')->nullable()->constrained();
             $table->timestamps();
         });

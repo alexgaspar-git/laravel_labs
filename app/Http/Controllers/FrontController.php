@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Discover;
 use App\Models\Feature;
+use App\Models\FormContact;
 use App\Models\Image;
 use App\Models\Logo;
 use App\Models\Map;
+use App\Models\Post;
 use App\Models\Service;
+use App\Models\Tag;
 use App\Models\Testimonial;
 use App\Models\Title;
 use App\Models\Video;
@@ -35,11 +39,16 @@ class FrontController extends Controller
         $logo = Logo::find(1);
         $contact = Contact::find(1);
         $title = Title::find(1);
-        return view('front.services', compact('pageServices', 'featLeft', 'featRight','logo', 'contact','title'));
+        $posts = Post::inRandomOrder()->limit(3)->get();
+        $subjects = FormContact::all();
+        return view('front.services', compact('pageServices', 'featLeft', 'featRight','logo', 'contact', 'title', 'posts', 'subjects'));
     }
     public function blog(){
         $logo = Logo::find(1);
-        return view('front.blog', compact('logo'));
+        $posts = Post::all();
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('front.blog', compact('logo', 'posts', 'categories','tags'));
     }
     public function contact(){
         $maps = Map::find(1);

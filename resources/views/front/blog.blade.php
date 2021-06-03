@@ -5,5 +5,5 @@
     @include('partials.blog.header')
     @include('partials.blog.pageheader')
     @include('partials.blog.pagesection')
-    @include('partials.blog.newsletter')
+    @include('partials.newsletter')
 @endsection

@@ -20,11 +20,11 @@
                         <p>{{$testimonial->quote}}</p>
                         <div class="client-info">
                             <div class="avatar">
-                                <img src="img/avatar/01.jpg" alt="">
+                                <img src="img/{{$testimonial->image}}" alt="">
                             </div>
                             <div class="client-name">
-                                <h2>Michael Smith</h2>
-                                <p>CEO Company</p>
+                                <h2>{{$testimonial->firstname}} {{$testimonial->lastname}}</h2>
+                                <p>{{$testimonial->job}}</p>
                             </div>
                         </div>
                     </div>

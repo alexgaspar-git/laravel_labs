@@ -16,13 +16,25 @@ class TagSeeder extends Seeder
     {
         DB::table('tags')->insert([
             [
-                "tag"=>"test"
+                "tag"=>"branidng"
             ],
             [
-                "tag"=>"test"
+                "tag"=>"idteny"
             ],
             [
-                "tag"=>"test"
+                "tag"=>"vdeio"
+            ],
+            [
+                "tag"=>"desngi"
+            ],
+            [
+                "tag"=>"sinpraiton"
+            ],
+            [
+                "tag"=>"wbe desngi"
+            ],
+            [
+                "tag"=>"photography"
             ],
         ]);
     }

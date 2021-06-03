@@ -18,9 +18,13 @@ class PostSeeder extends Seeder
             [
                 "text"=>"blibloubloubloubloubloubloub",
                 "title"=>"mmmmmmmhm",
-                "img"=>"blog/blog-1.jpg",
-                "category_id"=>"1",
-                "comment_id"=>null,
+                "dateYear"=>date("Y"),
+                "dateMonth"=>date("M"),
+                "dateDay"=>date("d"),
+                "img"=>"blog-1.jpg",
+                "category_id"=>1,
+                "user_id"=>1,
+                "comment_id"=>1,
                 "created_at"=>now(),
             ],
         ]);

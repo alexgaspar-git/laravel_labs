@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\NewsletterController;
@@ -32,5 +33,7 @@ Route::get('/dashboard', function () {
 
 // Newsletter
 Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterStore');
+// Mail
 
+Route::post('/mail', [ContactController::class, 'store'])->name('contactform');
 require __DIR__.'/auth.php';
