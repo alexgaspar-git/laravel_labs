@@ -20,6 +20,7 @@ use App\Models\Video;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class FrontController extends Controller
 {
@@ -32,9 +33,13 @@ class FrontController extends Controller
         $images = Image::all();
         $logo = Logo::find(1);
         $contact = Contact::find(1);
+        $users = User::all();
         $title = Title::find(1);
         $subjects = FormContact::all();
-        return view('home', compact('video', 'services', 'service9', 'testimonials', 'discovers', 'images', 'logo', 'contact','title', 'subjects'));
+        $ceo = User::where('job_id', 1)->get();
+        $team = User::where('job_id', '>', 1)->get();
+        $membre = $team->random(2);
+        return view('home', compact('video', 'services', 'service9', 'testimonials', 'discovers', 'images', 'logo', 'contact','title', 'subjects','users', 'ceo', 'membre'));
     }
     public function services(){
         $pageServices = Service::paginate(9)->fragment('paginate');
@@ -78,8 +83,8 @@ class FrontController extends Controller
         $posts = Post::all();
         $categories = Category::all();
         $tags = Tag::all();
-        $searchPosts = Post::paginate(3)->fragment('paginate')->where('title', 'LIKE', "%{$search}%")
-                    ->orWhere('text', 'LIKE', "%{$search}%")->get();
+        $searchPosts = Post::where('title', 'LIKE', "%{$search}%")
+                    ->orWhere('text', 'LIKE', "%{$search}%")->get()->paginate(3)->fragment('paginate');
         return view('front.search', compact('searchPosts','logo','posts','categories','tags'));
     }
 }
