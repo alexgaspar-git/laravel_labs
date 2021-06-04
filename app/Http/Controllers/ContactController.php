@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 class ContactController extends Controller
 {
     public function store(Request $request){
-        Mail::to('alex@labs.com')->send(new ContactSender($request));
+        Mail::to('alex@bloobs.com')->send(new ContactSender($request));
         return redirect()->back();
     }
 }

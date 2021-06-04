@@ -10,6 +10,6 @@ class Comment extends Model
     use HasFactory;
 
     public function post(){
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(Post::class);
     }
 }

@@ -33,9 +33,19 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $comment = new Comment();
+        $comment->comment = $request->comment;
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->dateDay = date('D');
+        $comment->dateYear = date('M');
+        $comment->dateMonth = date('Y');
+        $comment->validate = 1;
+        $comment->post_id = $id;
+        $comment->save();
+        return back()->with('success', 'Votre commentaire a été envoyé et attend confirmation');
     }
 
     /**
@@ -80,6 +90,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect()->back();
     }
 }

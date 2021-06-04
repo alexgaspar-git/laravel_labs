@@ -10,6 +10,6 @@ class Tag extends Model
     use HasFactory;
     
     public function post(){
-        return $this->belongstoMany(Post::class, 'tagpost', 'tag_id');
+        return $this->belongstoMany(Post::class, 'tagposts', 'tag_id');
     }
 }

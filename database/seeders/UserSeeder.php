@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
                 "role_id"=>1,
                 "job_id"=>1,
                 "testimonial_id"=>null,
-                "img"=>"avatar/anonymous.png",
+                "img"=>"03.jpg",
                 "email"=>"admin@adminou.it",
                 "password"=>Hash::make('testtest'),
             ],

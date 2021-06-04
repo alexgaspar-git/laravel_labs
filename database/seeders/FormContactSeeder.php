@@ -14,7 +14,7 @@ class FormContactSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('formcontacts')->insert([
+        DB::table('form_contacts')->insert([
             [
                 "subject"=>"Aled"
             ],

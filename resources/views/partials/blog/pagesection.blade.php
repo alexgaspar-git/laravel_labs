@@ -1,6 +1,6 @@
 <div class="page-section spad">
     <div class="container">
-        <div class="row">
+        <div class="row" id="paginate">
             <div class="col-md-8 col-sm-7 blog-posts">
                 <!-- Post item -->
                 @foreach ($posts as $post)
@@ -17,14 +17,14 @@
                             <div class="post-meta">
                                 <a href="">{{$post->user->firstname}} {{$post->user->name}}</a>
                                 <a href="">{{$post->category->category}}</a>
-                                @if ($post->comment->count() == 1)
-                                    <a href="">{{$post->comment->count()}} Comment</a>      
-                                @else
-                                    <a href="">{{$post->comment->count()}} Comments</a>   
+                                @if ($post->comment->where('post_id', "=", $post->id)->count() <= 1)
+                                    <a href="">{{$post->comment->count()}} Comment</a>
+                                @elseif ($post->comment->where('post_id', "=", $post->id)->count() > 1)
+                                    <a href="">{{$post->comment->count()}} Comments</a>
                                 @endif
                             </div>
                             <p>{{$post->text}}</p>
-                            <a href="blog-post.html" class="read-more">Read More</a>
+                            <a href="{{route('blogpost', $post->id)}}" class="read-more">Read More</a>
                         </div>
                     </div>
                 @endforeach
@@ -69,19 +69,20 @@
                     </div>
                 </div> --}}
                 <!-- Pagination -->
-                <div class="page-pagination">
+                {{-- <div class="page-pagination">
                     <a class="active" href="">01.</a>
                     <a href="">02.</a>
                     <a href="">03.</a>
-                </div>
+                </div> --}}
+                <p>{{$posts->links()}}</p>
             </div>
             <!-- Sidebar area -->
             <div class="col-md-4 col-sm-5 sidebar">
                 <!-- Single widget -->
                 <div class="widget-item">
-                    <form action="#" class="search-form">
-                        <input type="text" placeholder="Search">
-                        <button class="search-btn"><i class="flaticon-026-search"></i></button>
+                    <form class="search-form" action={{route('search')}} method="GET">
+                        <input type="text" name="search" placeholder="Search">
+                        <button class="search-btn" type="submit"><i class="flaticon-026-search"></i></button>
                     </form>
                 </div>
                 <!-- Single widget -->

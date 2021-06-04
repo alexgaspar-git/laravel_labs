@@ -18,14 +18,23 @@
                     @csrf
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" name="name" id="" placeholder="Your name">
+                            <input type="text" name="name" id="name" placeholder="Your name">
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" name="email" placeholder="Your email">
+                            @guest 
+                                <input type="text" name="mail" placeholder="Your email">
+                            @endguest
+                            @auth
+                                <input type="text" name="mail" placeholder="Your email" value={{Auth::user()->email}}>
+                            @endauth
                         </div>
                         <div class="col-sm-12">
-                            <input type="text" name="subject" placeholder="Subject">
-                            <textarea name="message" placeholder="Message"></textarea>
+                            <select name="subject" id="subject" placeholder="subject">
+                                @foreach ($subjects as $subject)
+                                    <option value="{{$subject->subject}}">{{$subject->subject}}</option>
+                                @endforeach
+                            </select>
+                            <textarea name="message" placeholder="Your message..." name="message" id="message"></textarea>
                             <button class="site-btn">send</button>
                         </div>
                     </div>

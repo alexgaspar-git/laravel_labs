@@ -8,5 +8,5 @@
     @include('partials.services.features')
     @include('partials.services.servicecard')
     @include('partials.newsletter')
-    @include('partials.services.contact')
+    @include('partials.contact')
 @endsection

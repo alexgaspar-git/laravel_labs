@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\FormContact;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,8 +24,7 @@ class DatabaseSeeder extends Seeder
             ImageSeeder::class,
             LogoSeeder::class,
             ContactSeeder::class,
-            CommentSeeder::class,
-            FormContact::class,
+            FormContactSeeder::class,
             TitleSeeder::class,
             TagSeeder::class,
             CategorySeeder::class,
@@ -34,6 +32,7 @@ class DatabaseSeeder extends Seeder
             JobSeeder::class,
             UserSeeder::class,
             PostSeeder::class,
+            CommentSeeder::class,
             TagPostSeeder::class,
         ]);
     }

@@ -13,7 +13,7 @@ class CreateFormcontactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('formcontacts', function (Blueprint $table) {
+        Schema::create('form_contacts', function (Blueprint $table) {
             $table->id();
             $table->string('subject');
             $table->timestamps();

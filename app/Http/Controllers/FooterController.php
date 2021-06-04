@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Footer;
-use App\Models\Logo;
-use App\Models\Post;
-use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class FooterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -45,26 +41,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Footer $footer)
     {
-        $article = $post;
-        $logo = Logo::find(1);
-        $categories = Category::all();
-        $tags = Tag::all();
-        $footer = Footer::find(1);
-        return view('front.blogpost', compact('article', 'categories', 'tags', 'footer', 'logo'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Footer $footer)
     {
         //
     }
@@ -73,10 +64,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Footer $footer)
     {
         //
     }
@@ -84,10 +75,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Footer $footer)
     {
         //
     }
