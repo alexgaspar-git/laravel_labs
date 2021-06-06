@@ -5,8 +5,10 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DiscoverController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\TitleController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +37,8 @@ Route::get('/admin', [BackController::class, 'index'])->middleware(['auth'])->na
 //Home
 Route::resource('/admin/video', VideoController::class);
 Route::resource('/admin/discover', DiscoverController::class);
+Route::resource('/admin/image', ImageController::class);
+Route::resource('/admin/title', TitleController::class);
 
 // ------------NEWSLETTER------------
 Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterStore');

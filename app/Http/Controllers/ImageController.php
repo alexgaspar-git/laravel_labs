@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -14,7 +15,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $images = Image::all();
+        return view('back.image.index', compact('images'));
     }
 
     /**
@@ -35,7 +37,14 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "link"=>['image','mimes:jpeg,png,jpg,gif,svg','max:2048']
+        ]);
+        $request->file('link')->storePublicly('img/','public');
+        $image = new Image();
+        $image->link = $request->file('link')->hashName();
+        $image->save();
+        return redirect()->route('image.index')->with('success','Your changes have been saved.');
     }
 
     /**
@@ -69,7 +78,16 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        //
+        // request()->validate([
+        //     "link"=>['image','mimes:jpeg,png,jpg,gif,svg','max:2048']
+        // ]);
+
+        // if ($request->file('link') != null) {
+        //     Storage::disk('public')->delete('img/'.$image->src);
+        //     $request->file('link')->storePublicly('img/','public');
+        //     $image->src = $request->file('link')->hashName();
+        //     $image->save();
+        // }
     }
 
     /**
@@ -80,6 +98,8 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        //
+        Storage::disk('public')->delete('img/'.$image->src);
+        $image->delete();
+        return redirect()->back();
     }
 }

@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Title;
+use Illuminate\Http\Request;
+
+class TitleController extends Controller
+{
+    public function edit(Title $title){
+        return view('back.titles.index', compact('title'));
+    }
+
+    public function update(Request $request, Title $title)
+    {
+        request()->validate([
+            "titleHome1"=>["required", "max:50"],
+            "titleHome2"=>["required", "max:50"],
+            "titleHome3"=>["required", "max:50"],
+            "titleHome4"=>["required", "max:50"],
+            "titleService1"=>["required", "max:50"],
+            "titleService2"=>["required", "max:50"],
+        ]);
+        $title->titleHome1 = $request->titleHome1;
+        $title->titleHome2 = $request->titleHome2;
+        $title->titleHome3 = $request->titleHome3;
+        $title->titleHome4 = $request->titleHome4;
+        $title->titleService1 = $request->titleService1;
+        $title->titleService2 = $request->titleService2;
+        $title->save();
+        return redirect('/admin/title/'.$title->id.'/edit')->with('success', 'Your changes have been saved.');
+    }
+}

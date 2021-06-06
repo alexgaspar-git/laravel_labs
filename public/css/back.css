@@ -23,8 +23,12 @@
 }
 
 .bordou{
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(240, 240, 240);
     border-radius: 5px;
     padding: 25px;
     margin: 15px;
+}
+
+.galerie{
+    border:rgb(221, 221, 221) solid 2px;
 }
