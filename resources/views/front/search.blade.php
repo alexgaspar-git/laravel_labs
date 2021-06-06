@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         @endforeach  
-                        <p>{{$searchPosts->links()}}</p>
+                        {{-- <p>{{$searchPosts->links()}}</p> --}}
                     @endif
                 </div>
             </div>

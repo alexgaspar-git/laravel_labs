@@ -74,7 +74,7 @@ class FrontController extends Controller
         $categories = Category::all();
         $subjects = FormContact::all();
         $comments = Comment::where('post_id', $post->id)->where('validate', 1)->get();
-        return view('front.blogpost', compact('logo','categories','subjects','comments','post'));
+        return view('front.blogpost', compact('logo','categories','subjects','comments','post','pageBlogs'));
     }
     
     public function search(Request $request){
@@ -84,7 +84,7 @@ class FrontController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $searchPosts = Post::where('title', 'LIKE', "%{$search}%")
-                    ->orWhere('text', 'LIKE', "%{$search}%")->get()->paginate(3)->fragment('paginate');
+                    ->orWhere('text', 'LIKE', "%{$search}%")->get();
         return view('front.search', compact('searchPosts','logo','posts','categories','tags'));
     }
 }

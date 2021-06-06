@@ -25,7 +25,7 @@
                     <!-- Post Author -->
                     <div class="author">
                         <div class="avatar">
-                            <img src={{asset('/img/avatar/'. $post->user->img)}} alt="">
+                            <img src={{asset('/img/team/'. $post->user->img)}} style="height: 100px; width: 100px; object-fit: cover; object-position: top;" alt="">
                         </div>
                         <div class="author-info">
                             <h2>Lore Williams, <span>Author</span></h2>

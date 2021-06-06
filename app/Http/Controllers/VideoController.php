@@ -14,7 +14,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -57,7 +57,7 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        //
+        return view('back.video.index', compact('video'));
     }
 
     /**
@@ -69,7 +69,12 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
-        //
+        request()->validate([
+            "link"=>["required", "max:100"],
+        ]);
+        $video->link = $request->link;
+        $video->save();
+        return redirect('/admin/video/'. $video->id. '/edit')->with('success', 'Your changes have been saved.');
     }
 
     /**

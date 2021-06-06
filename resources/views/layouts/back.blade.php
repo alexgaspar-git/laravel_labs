@@ -19,10 +19,11 @@
         <div class="tempcolor border-right" id="sidebar-wrapper">
             <div class="sidebar-heading text-light">Bart Stootstrap</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action linkcolor" href="#!">Home</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="#!">Services</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="#!">Blog</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="#!">Contact</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('dashboard')}}"><i class="fas fa-home"></i>  Home</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="#!"><i class="fas fa-concierge-bell"></i>  Services</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="#!"><i class="fab fa-blogger-b"></i>  Blog</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="#!"><i class="fas fa-address-book"></i>  Contact</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('home')}}"><i class="fas fa-angle-double-left"></i>  Back</a>
             </div>
         </div>
         <!-- Page Content-->
@@ -61,5 +62,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="https://kit.fontawesome.com/92e0a4649f.js" crossorigin="anonymous"></script>
 </body>
 </html>

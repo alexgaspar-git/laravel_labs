@@ -6,7 +6,7 @@
                 @foreach ($posts as $post)
                     <div class="post-item">
                         <div class="post-thumbnail">
-                            <img src="img/blog/{{$post->img}}" alt="">
+                            <img src="/img/blog/{{$post->img}}" alt="">
                             <div class="post-date">
                                 <h2>{{$post->dateDay}}</h2>
                                 <h3>{{$post->dateMonth}} {{$post->dateYear}}</h3>

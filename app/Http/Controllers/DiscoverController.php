@@ -57,7 +57,7 @@ class DiscoverController extends Controller
      */
     public function edit(Discover $discover)
     {
-        //
+        return view('back.discover.index', compact('discover'));
     }
 
     /**
@@ -69,7 +69,14 @@ class DiscoverController extends Controller
      */
     public function update(Request $request, Discover $discover)
     {
-        //
+        request()->validate([
+            "para1"=>["required", "max:400"],
+            "para2"=>["required", "max:400"],
+        ]);
+        $discover->para1 = $request->para1;
+        $discover->para2 = $request->para2;
+        $discover->save();
+        return redirect('/admin/discover/'.$discover->id.'/edit')->with('success', 'Your changes have been saved.');
     }
 
     /**
