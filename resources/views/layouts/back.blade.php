@@ -11,6 +11,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href={{asset('css/back.css')}}>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/flaticon.css')}}"/>
 </head>
@@ -28,7 +29,8 @@
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('service.index')}}"><i class="fas fa-concierge-bell"></i>  Services</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('feature.index')}}"><i class="fas fa-concierge-bell"></i>  Feature</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="#!"><i class="fab fa-blogger-b"></i>  Blog</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="#!"><i class="fas fa-address-book"></i>  Contact</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('contact.edit', $contact->id)}}"><i class="fas fa-address-book"></i>  Contact</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('map.edit', $map->id)}}"><i class="fas fa-address-book"></i>  Map</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('home')}}"><i class="fas fa-angle-double-left"></i>  Back</a>
             </div>
         </div>
@@ -69,5 +71,7 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script src="https://kit.fontawesome.com/92e0a4649f.js" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+	<script src="{{asset('js/map.js')}}"></script> 
 </body>
 </html>

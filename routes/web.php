@@ -8,6 +8,7 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\MapController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TitleController;
@@ -44,6 +45,9 @@ Route::resource('/admin/title', TitleController::class);
 //Service
 Route::resource('/admin/service', ServiceController::class);
 Route::resource('/admin/feature', FeatureController::class);
+//Contact
+Route::resource('/admin/contact', ContactController::class);
+Route::resource('/admin/map', MapController::class);
 
 // ------------NEWSLETTER------------
 Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterStore');

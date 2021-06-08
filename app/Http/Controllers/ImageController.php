@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Discover;
 use App\Models\Image;
 use App\Models\Title;
@@ -22,7 +23,8 @@ class ImageController extends Controller
         $discover = Discover::find(1);
         $title = Title::find(1);
         $images = Image::all();
-        return view('back.image.index', compact('images','discover','title','video'));
+        $contact = Contact::all();
+        return view('back.image.index', compact('images','discover','title','video','contact'));
     }
 
     /**
