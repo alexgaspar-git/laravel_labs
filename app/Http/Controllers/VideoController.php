@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discover;
+use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -57,7 +59,9 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        return view('back.video.index', compact('video'));
+        $discover = Discover::find(1);
+        $title = Title::find(1);
+        return view('back.video.index', compact('video','title','discover'));
     }
 
     /**

@@ -32,3 +32,13 @@
 .galerie{
     border:rgb(221, 221, 221) solid 2px;
 }
+
+.icon{
+    font-size: 75px;
+}
+
+.feat{
+    background-color: rgb(226, 226, 226);
+    border: solid rgb(221, 221, 221);
+    border-radius: 5px;
+}

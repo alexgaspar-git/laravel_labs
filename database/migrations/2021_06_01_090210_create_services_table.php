@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('icon');
+            $table->foreignId('icon_id')->constrained();
             $table->timestamps();
         });
     }

@@ -16,32 +16,32 @@ class FeatureSeeder extends Seeder
     {
         DB::table('features')->insert([
             [
-                "icon"=>"flaticon-002-caliper",
+                "icon_id"=>10,
                 "title"=>"Get in the lab",
                 "description"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-019-coffee-cup",
+                "icon_id"=>11,
                 "title"=>"Projects online",
                 "description"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-020-creativity",
+                "icon_id"=>12,
                 "title"=>"SMART MARKETING",
                 "description"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-037-idea",
+                "icon_id"=>13,
                 "title"=>"Get in the lab",
                 "description"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-025-imagination",
+                "icon_id"=>14,
                 "title"=>"Projects online",
                 "description"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],
             [
-                "icon"=>"flaticon-008-team",
+                "icon_id"=>15,
                 "title"=>"SMART MARKETING",
                 "description"=>"Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec",
             ],

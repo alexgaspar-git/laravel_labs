@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discover;
+use App\Models\Icon;
 use App\Models\Service;
+use App\Models\Title;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -14,7 +18,11 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $video = Video::find(1);
+        $discover = Discover::find(1);
+        $title = Title::find(1);
+        $services = Service::all();
+        return view('back.service.index', compact('services','title','discover','video'));
     }
 
     /**
@@ -24,7 +32,11 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        $video = Video::find(1);
+        $discover = Discover::find(1);
+        $title = Title::find(1);
+        $icons = Icon::all();
+        return view('back.service.create', compact('title','video','discover','icons'));
     }
 
     /**
@@ -35,7 +47,18 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            "title"=> ["required","max:20"],
+            "description"=> ["required","max:300"],
+            "icon"=> ["required"],
+        ]);
+        $service = new Service;
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->icon_id = $request->icon;
+        $service->save();
+        return redirect('/admin/service/')->with('success', 'Your service has been added.');
+
     }
 
     /**
@@ -57,7 +80,11 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        $video = Video::find(1);
+        $discover = Discover::find(1);
+        $title = Title::find(1);
+        $icons = Icon::all();
+        return view('back.service.edit',compact('service','title','discover','video','icons'));
     }
 
     /**
@@ -69,7 +96,16 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        request()->validate([
+            "title"=>["required", "max:30"],
+            "description"=>["required", "max:300"],
+            "icon"=>["required"],
+        ]);
+        $service->title = $request->title;
+        $service->description = $request->description;
+        $service->icon_id = $request->icon;
+        $service->save();
+        return redirect('/admin/service/')->with('success', 'Your changes have been saved.');
     }
 
     /**
@@ -80,6 +116,7 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        return redirect()->back();
     }
 }

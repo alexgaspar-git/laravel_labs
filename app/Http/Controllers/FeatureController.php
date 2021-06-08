@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discover;
 use App\Models\Feature;
+use App\Models\Title;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class FeatureController extends Controller
@@ -14,7 +17,12 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        //
+        $video = Video::find(1);
+        $discover = Discover::find(1);
+        $title = Title::find(1);
+        $featLeft = Feature::where('id','<', 4)->get();
+        $featRight = Feature::where('id','>', 3)->get();  
+        return view('back.feature.index', compact('featLeft','featRight','video','discover','title'));
     }
 
     /**

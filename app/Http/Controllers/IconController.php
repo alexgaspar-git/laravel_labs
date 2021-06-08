@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Discover;
-use App\Models\Title;
-use App\Models\Video;
+use App\Models\Icon;
 use Illuminate\Http\Request;
 
-class DiscoverController extends Controller
+class IconController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,10 +41,10 @@ class DiscoverController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Discover  $discover
+     * @param  \App\Models\Icon  $icon
      * @return \Illuminate\Http\Response
      */
-    public function show(Discover $discover)
+    public function show(Icon $icon)
     {
         //
     }
@@ -54,42 +52,33 @@ class DiscoverController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Discover  $discover
+     * @param  \App\Models\Icon  $icon
      * @return \Illuminate\Http\Response
      */
-    public function edit(Discover $discover)
+    public function edit(Icon $icon)
     {
-        $video = Video::find(1);
-        $title = Title::find(1);
-        return view('back.discover.index', compact('discover','title','video'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Discover  $discover
+     * @param  \App\Models\Icon  $icon
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Discover $discover)
+    public function update(Request $request, Icon $icon)
     {
-        request()->validate([
-            "para1"=>["required", "max:400"],
-            "para2"=>["required", "max:400"],
-        ]);
-        $discover->para1 = $request->para1;
-        $discover->para2 = $request->para2;
-        $discover->save();
-        return redirect('/admin/discover/'.$discover->id.'/edit')->with('success', 'Your changes have been saved.');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Discover  $discover
+     * @param  \App\Models\Icon  $icon
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Discover $discover)
+    public function destroy(Icon $icon)
     {
         //
     }

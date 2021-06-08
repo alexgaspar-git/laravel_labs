@@ -20,7 +20,7 @@
                         <p>{{$feat->description}}</p>
                     </div>
                     <div class="icon">
-                        <i class="{{$feat->icon}}"></i>
+                        <i class="{{$feat->icon->icon}}"></i>
                     </div>
                 </div>
                 @endforeach
@@ -36,7 +36,7 @@
                 @foreach ($featRight as $feat)        
                 <div class="icon-box light">
                     <div class="icon">
-                        <i class="{{$feat->icon}}"></i>
+                        <i class="{{$feat->icon->icon}}"></i>
                     </div>
                     <div class="service-text">
                         <h2>{{$feat->title}}</h2>

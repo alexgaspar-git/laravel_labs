@@ -16,13 +16,14 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             VideoSeeder::class,
-            ServiceSeeder::class,
             TestimonialSeeder::class,
             DiscoverSeeder::class,
-            FeatureSeeder::class,
             MapSeeder::class,
             ImageSeeder::class,
             LogoSeeder::class,
+            IconSeeder::class,
+            FeatureSeeder::class,
+            ServiceSeeder::class,
             ContactSeeder::class,
             FormContactSeeder::class,
             TitleSeeder::class,

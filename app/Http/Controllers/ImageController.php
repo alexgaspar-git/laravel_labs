@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Discover;
 use App\Models\Image;
+use App\Models\Title;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,8 +18,11 @@ class ImageController extends Controller
      */
     public function index()
     {
+        $video = Video::find(1);
+        $discover = Discover::find(1);
+        $title = Title::find(1);
         $images = Image::all();
-        return view('back.image.index', compact('images'));
+        return view('back.image.index', compact('images','discover','title','video'));
     }
 
     /**
@@ -98,7 +104,7 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        Storage::disk('public')->delete('img/'.$image->src);
+        Storage::disk('public')->delete('img/'.$image->link);
         $image->delete();
         return redirect()->back();
     }
