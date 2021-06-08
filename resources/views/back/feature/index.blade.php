@@ -12,6 +12,7 @@
                 <div class="icon">
                     <i class="{{$feat->icon->icon}}"></i>
                 </div>
+                <a href="{{route('feature.edit', $feat->id)}}" class="btn btn-dark w-100">Edit</a>
             </div>
             @endforeach
         </div>
@@ -26,6 +27,7 @@
                 <div class="icon">
                     <i class="{{$feat->icon->icon}}"></i>
                 </div>
+                <a href="{{route('feature.edit', $feat->id)}}" class="btn btn-dark w-100">Edit</a>
             </div>
             @endforeach
         </div>

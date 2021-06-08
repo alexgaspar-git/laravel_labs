@@ -44,7 +44,7 @@
                     <div class="form-group col-8">
                         {{-- <input type="text" value="{{$service->icon->icon}}" name="icon"> --}}
                         <select class="form-select form-control @error('icon') is-invalid @enderror" name="icon">
-                            <option selected>{{$service->icon->icon}}</option>
+                            <option value={{$service->icon->id}} selected>{{$service->icon->icon}}</option>
                             @foreach ($icons as $icon)
                                 <option value="{{$icon->id}}">
                                     {{$icon->icon}}
