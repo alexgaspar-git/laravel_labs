@@ -82,7 +82,7 @@ class FeatureController extends Controller
         $map = Map::find(1);
         $logo = Logo::find(1);
         $footer = Footer::find(1);
-        return view('back.feature.edit', compact('feature','video','discover','title','icons','map','contact','logo','contact'));
+        return view('back.feature.edit', compact('feature','video','discover','title','icons','map','contact','logo','contact','footer'));
     }
 
     /**

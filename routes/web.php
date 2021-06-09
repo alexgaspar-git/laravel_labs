@@ -14,6 +14,7 @@ use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TitleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,7 @@ Route::post('/image-resize', [LogoController::class, 'imgResize'])->name('img-re
 Route::get('/admin', [BackController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 //Home
+Route::resource('/admin/user', UserController::class);
 Route::resource('/admin/video', VideoController::class);
 Route::resource('/admin/discover', DiscoverController::class);
 Route::resource('/admin/image', ImageController::class);
@@ -54,6 +56,8 @@ Route::resource('/admin/map', MapController::class);
 Route::resource('/admin/footer', FooterController::class);
 //Blog
 Route::resource('/admin/post', PostController::class);
+// Route::delete('/admin/post/{id}/destroy', [PostController::class, 'softDelete'])->name('softdelete');
+
 
 // ------------NEWSLETTER------------
 Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterStore');

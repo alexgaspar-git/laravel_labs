@@ -14,10 +14,9 @@
                 <h4 class="text-center">Deuxième paragraphe</h4>
                 <textarea name="para2" cols="30" rows="10">{{$discover->para2}}</textarea>
             </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-success">Confirm</button>
+            </div>
         </form>
-        <div class="mt-3">
-            <button type="submit" class="btn btn-success">Confirm</button>
-            <a href="{{route('dashboard')}}" class="btn btn-primary">Back</a>
-        </div>
     </div>
 @endsection

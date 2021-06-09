@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Discover;
 use App\Models\Footer;
@@ -10,10 +11,12 @@ use App\Models\Logo;
 use App\Models\Map;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\TagPost;
 use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -51,7 +54,8 @@ class PostController extends Controller
         $logo = Logo::find(1);
         $footer = Footer::find(1);
         $categories = Category::all();
-        return view('back.blog.create',compact('video','discover','title','contact','map','logo','footer','categories'));
+        $tags = Tag::all();
+        return view('back.blog.create',compact('video','discover','title','contact','map','logo','footer','categories','tags'));
     }
 
     /**
@@ -69,7 +73,7 @@ class PostController extends Controller
         ]);
 
         $post = new Post();
-        $request->file('img')->storePublicly('img/','public');
+        $request->file('img')->storePublicly('img/blog/','public');
         $post->text = $request->text;
         $post->title = $request->title;
         $post->img = $request->file('img')->hashName();
@@ -79,8 +83,17 @@ class PostController extends Controller
         $post->category_id = $request->category;
         $post->user_id = Auth::user()->id;
         $post->validate = 0;
+        $post->bin = 0;
         $post->save();
-        return redirect()->route('post.index')->with('success','Your changes have been saved.');
+
+        foreach($request->input('tagList') as $value){
+            $tag = new TagPost();
+            $tag->post_id = $post->id;
+            $tag->tag_id = $value;
+            $tag->save();
+        }
+
+        return redirect()->route('post.index')->with('success','Your post has been added.');
     }
 
     /**
@@ -107,7 +120,17 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $video = Video::find(1);
+        $discover = Discover::find(1);
+        $title = Title::find(1);
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        $categories = Category::all();
+        $tags = Tag::all();
+        $tagposts = TagPost::all()->where('post_id', $post->id);
+        return view('back.blog.edit', compact('video','discover','title','contact','map','logo','footer','categories','post', 'tags','tagposts'));
     }
 
     /**
@@ -119,7 +142,31 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        request()->validate([
+            "text"=> ["required","max:500"],
+            "title"=> ["required","max:50"],
+            "img"=> ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048']
+        ]);
+
+        $request->file('img')->storePublicly('img/blog/','public');
+        $post->text = $request->text;
+        $post->title = $request->title;
+        $post->img = $request->file('img')->hashName();
+        $post->category_id = $request->category;
+        $post->user_id = Auth::user()->id;
+        $post->validate = 0;
+        $post->save();
+        
+        DB::table('tagposts')->where('post_id', $post->id)->delete();
+
+        foreach ($request->input('tagList') as $value){
+            $tag = new TagPost();
+            $tag->post_id = $post->id;
+            $tag->tag_id = $value;
+            $tag->save();
+        }
+
+        return redirect()->route('post.index')->with('success','Your post has been modified.');
     }
 
     /**
@@ -130,8 +177,25 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        Storage::disk('public')->delete('img/'.$post->img);
+        $tagposts = TagPost::where('post_id', $post->id)->get();
+        foreach ($tagposts as $tagpost){
+            $tagpost->delete();
+        }
+
+        $comments = Comment::where('post_id', $post->id)->get();
+        foreach ($comments as $comment){
+            $comment->delete();
+        }
+
+        Storage::disk('public')->delete('img/blog'.$post->img);
         $post->delete();
+        return redirect()->back();
+    }
+
+    public function softDelete(Post $id){
+        $post = $id;
+        $post->bin = 1;
+        $post->save();
         return redirect()->back();
     }
 }

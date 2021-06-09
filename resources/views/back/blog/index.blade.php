@@ -24,7 +24,7 @@
                         <div class="mx-2">
                             <a href="{{route('post.edit', $post->id)}}" class="btn btn-dark">Edit</a>
                         </div>
-                        <form action="{{route('post.destroy', $post->id)}}" method="POST" class="mx-2">
+                        <form action="{{route('softdelete', $post->id)}}" method="POST" class="mx-2">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="tresh btn btn-dark"><i class="fas fa-trash"></i></button>

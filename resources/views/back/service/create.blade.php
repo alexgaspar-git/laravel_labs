@@ -1,13 +1,14 @@
 @extends('layouts.back')
 
 @section('content')
-    <form action="{{route('service.store')}}" method="post">
+    <form action="{{route('service.store')}}" class="" method="post">
         @csrf
-        <div class="container mt-5">
+        <div class="container bordou mt-5">
+            <h1 class="text-center my-5">Création Service</h1>
             <div class="form-row d-flex justify-content-center">
                 <div class="form-group col-8">
                     <label for="title">Titre</label>
-                    <input type="text" style="font-size: 20px;" class="text-center form-control @error('title') is-invalid @enderror" name="title">
+                    <input type="text" style="font-size: 20px;" class="form-control @error('title') is-invalid @enderror" name="title">
                     @error('title')
                         <span class="invalid-feedback">
                             <strong>Field required</strong>

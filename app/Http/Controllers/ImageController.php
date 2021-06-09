@@ -52,7 +52,7 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            "link"=>['image','mimes:jpeg,png,jpg,gif,svg','max:2048']
+            "link"=>['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048']
         ]);
         $request->file('link')->storePublicly('img/','public');
         $image = new Image();

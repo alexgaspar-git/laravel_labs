@@ -25,6 +25,7 @@ class PostSeeder extends Seeder
                 "category_id"=>1,
                 "user_id"=>1,
                 "validate"=>1,
+                "bin"=>0,
                 "created_at"=>now(),
             ],
             [
@@ -37,6 +38,7 @@ class PostSeeder extends Seeder
                 "category_id"=>1,
                 "user_id"=>1,
                 "validate"=>1,
+                "bin"=>0,
                 "created_at"=>now(),
             ],
             [
@@ -49,6 +51,7 @@ class PostSeeder extends Seeder
                 "category_id"=>1,
                 "user_id"=>1,
                 "validate"=>1,
+                "bin"=>0,
                 "created_at"=>now(),
             ],
             [
@@ -61,6 +64,7 @@ class PostSeeder extends Seeder
                 "category_id"=>1,
                 "user_id"=>1,
                 "validate"=>1,
+                "bin"=>0,
                 "created_at"=>now(),
             ],
         ]);

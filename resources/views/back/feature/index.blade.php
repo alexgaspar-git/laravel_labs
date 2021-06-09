@@ -1,5 +1,6 @@
 @extends('layouts.back')
 @section('content')
+    @include('layouts.flash')
     <div class="row bordou">
         <div class="col-6 d-flex flex-column text-center">
             <h2>Features Left</h2>

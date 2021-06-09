@@ -20,7 +20,12 @@
             @csrf
             <div class="form-group">
                 <label for="link">Votre Image:</label>
-                <input type="file" class="form-control-file" name="link">
+                <input type="file" class="form-control-file @error('link') is-invalid @enderror" name="link">
+                @error('link')
+                <span class="invalid-feedback">
+                    <strong>Field required</strong>
+                </span>
+            @enderror
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
         </form>

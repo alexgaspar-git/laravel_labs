@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'firstname'=> $request->firstname,
             // 'description'=> $request->description,
-            'img'=> asset('img/avatar/anonymous.png'),
+            'img'=> 'anonymous.png',
             'age' => $request->age,
             'role_id' =>3,
             'job_id' =>8,

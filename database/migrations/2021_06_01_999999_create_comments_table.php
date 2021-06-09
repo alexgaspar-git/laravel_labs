@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->string('name');
             $table->string('email');
-            $table->foreignId('post_id')->constrained();
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->string('dateDay');
             $table->string('dateMonth');
             $table->string('dateYear');

@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('category_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->boolean('validate');
+            $table->boolean('bin');
             $table->timestamps();
         });
     }
