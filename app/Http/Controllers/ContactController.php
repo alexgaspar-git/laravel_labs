@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Mail\ContactSender;
 use App\Models\Contact;
 use App\Models\Discover;
+use App\Models\Footer;
+use App\Models\Logo;
 use App\Models\Map;
 use App\Models\Title;
 use App\Models\Video;
@@ -23,7 +25,10 @@ class ContactController extends Controller
         $title = Title::find(1);
         $video = Video::find(1);
         $map = Map::find(1);
-        return view('back.contact.index', compact('contact','discover','title','video','map'));
+        $contact = Contact::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.contact.index', compact('contact','discover','title','video','map','logo','footer'));
     }
 
     public function update(Request $request, Contact $contact, Map $map){
@@ -45,10 +50,7 @@ class ContactController extends Controller
         $contact->number = $request->number;
         $contact->email = $request->email;
         $contact->save();
-
-        // $map->link = $request->link;
-        // $map->save();
-
+        
         return redirect('/admin/contact/'.$contact->id.'/edit')->with('success', 'Your changes have been saved.');
     }
 }

@@ -11,7 +11,6 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href={{asset('css/back.css')}}>
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/flaticon.css')}}"/>
 </head>
@@ -19,7 +18,9 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="tempcolor border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading text-light">Bart Stootstrap</div>
+            <div class="sidebar-heading text-light">
+                <img src="{{asset('img/'.$logo->link)}}" height="34px" alt="">
+            </div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('dashboard')}}"><i class="fas fa-home"></i>  Home</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('image.index')}}"><i class="fas fa-home"></i>  Carousel</a>
@@ -28,9 +29,10 @@
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('discover.edit', $discover->id)}}"><i class="fas fa-home"></i>  Discover</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('service.index')}}"><i class="fas fa-concierge-bell"></i>  Services</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('feature.index')}}"><i class="fas fa-concierge-bell"></i>  Feature</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="#!"><i class="fab fa-blogger-b"></i>  Blog</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('post.index')}}"><i class="fab fa-blogger-b"></i>  Blog</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('contact.edit', $contact->id)}}"><i class="fas fa-address-book"></i>  Contact</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('map.edit', $map->id)}}"><i class="fas fa-address-book"></i>  Map</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('footer.edit', $footer->id)}}"><i class="fas fa-address-book"></i>  Footer</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('home')}}"><i class="fas fa-angle-double-left"></i>  Back</a>
             </div>
         </div>

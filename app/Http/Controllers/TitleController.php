@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Discover;
+use App\Models\Footer;
+use App\Models\Logo;
+use App\Models\Map;
 use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -12,7 +16,11 @@ class TitleController extends Controller
     public function edit(Title $title){
         $video = Video::find(1);
         $discover = Discover::find(1);
-        return view('back.titles.index', compact('title','video','discover'));
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.titles.index', compact('title','video','discover','contact','map','logo','footer'));
     }
 
     public function update(Request $request, Title $title)

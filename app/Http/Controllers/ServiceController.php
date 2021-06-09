@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Discover;
+use App\Models\Footer;
 use App\Models\Icon;
+use App\Models\Logo;
+use App\Models\Map;
 use App\Models\Service;
 use App\Models\Title;
 use App\Models\Video;
@@ -22,7 +26,11 @@ class ServiceController extends Controller
         $discover = Discover::find(1);
         $title = Title::find(1);
         $services = Service::all();
-        return view('back.service.index', compact('services','title','discover','video'));
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.service.index', compact('services','title','discover','video','contact','map','logo','footer'));
     }
 
     /**
@@ -36,7 +44,11 @@ class ServiceController extends Controller
         $discover = Discover::find(1);
         $title = Title::find(1);
         $icons = Icon::all();
-        return view('back.service.create', compact('title','video','discover','icons'));
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.service.create', compact('title','video','discover','icons','map','contact','logo','footer'));
     }
 
     /**
@@ -84,7 +96,11 @@ class ServiceController extends Controller
         $discover = Discover::find(1);
         $title = Title::find(1);
         $icons = Icon::all();
-        return view('back.service.edit',compact('service','title','discover','video','icons'));
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.service.edit',compact('service','title','discover','video','icons','contact','map','footer','logo'));
     }
 
     /**

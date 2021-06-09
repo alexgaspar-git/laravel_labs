@@ -2,11 +2,8 @@
 
 @section('content')
     @include('layouts.flash')
-    <div class="row mt-5 bordou">
-        <div class="col-6 d-flex flex-column">
-            <iframe style="height: 500px" src="{{$video->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="col-6 d-flex flex-column">
+    <div class="bordou">
+        <div class="d-flex flex-column">
             <form action="{{route('video.update', $video->id)}}" method="POST">
                 @csrf
                 @method('PUT')

@@ -1,15 +1,14 @@
 @extends('layouts.back')
 
 @section('content')
-    @include('layouts.flash')
     <div class="bordou">
-        <form action="{{route('contact.update', $contact->id)}}" class="d-flex flex-column" method="POST">
+        <form action="{{route('map.update', $map->id)}}" class="d-flex flex-column" method="POST">
             @csrf
             @method('PUT')
             <h1 class="text-center">Contact</h1>
             <div class="form-row d-flex justify-content-center">
                 <div class="form-group col-8">
-                    <label for="description">Description</label>
+                    <label for="description">Text</label>
                     <textarea type="text" style="font-size: 20px;" class="text-center form-control @error('description') is-invalid @enderror" name="description" value="{{$contact->description}}">{{$contact->description}}</textarea>
                     @error('description')
                         <span class="invalid-feedback">

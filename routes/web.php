@@ -5,11 +5,13 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DiscoverController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\VideoController;
@@ -48,6 +50,10 @@ Route::resource('/admin/feature', FeatureController::class);
 //Contact
 Route::resource('/admin/contact', ContactController::class);
 Route::resource('/admin/map', MapController::class);
+//Footer
+Route::resource('/admin/footer', FooterController::class);
+//Blog
+Route::resource('/admin/post', PostController::class);
 
 // ------------NEWSLETTER------------
 Route::post('/newsletter/store', [NewsletterController::class, 'store'])->name('newsletterStore');

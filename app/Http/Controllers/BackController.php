@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Discover;
+use App\Models\Footer;
+use App\Models\Logo;
 use App\Models\Map;
 use App\Models\Title;
 use App\Models\Video;
@@ -17,7 +19,9 @@ class BackController extends Controller
         $title = Title::find(1);
         $contact = Contact::find(1);
         $map = Map::find(1);
-        return view('back.home', compact('video', 'discover', 'title', 'contact'));
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.home', compact('video', 'discover', 'title', 'contact','map', 'footer','logo'));
     }
 }
 

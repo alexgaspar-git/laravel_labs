@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Discover;
+use App\Models\Footer;
+use App\Models\Logo;
 use App\Models\Map;
 use App\Models\Title;
 use App\Models\Video;
@@ -16,7 +18,9 @@ class MapController extends Controller
         $title = Title::find(1);
         $video = Video::find(1);
         $contact = Contact::find(1);
-        return view('back.map.index', compact('map','title','discover','video','contact'));
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.map.index', compact('map','title','discover','video','contact','logo','footer'));
     }
     public function update(Request $request, Map $map){
         $map->link = $request->link;

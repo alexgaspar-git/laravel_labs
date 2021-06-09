@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Discover;
+use App\Models\Footer;
+use App\Models\Logo;
+use App\Models\Map;
 use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -61,7 +65,11 @@ class VideoController extends Controller
     {
         $discover = Discover::find(1);
         $title = Title::find(1);
-        return view('back.video.index', compact('video','title','discover'));
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.video.index', compact('video','title','discover','contact','map','logo','footer'));
     }
 
     /**

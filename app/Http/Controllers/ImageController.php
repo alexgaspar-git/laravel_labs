@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Discover;
+use App\Models\Footer;
 use App\Models\Image;
+use App\Models\Logo;
+use App\Models\Map;
 use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -23,8 +26,11 @@ class ImageController extends Controller
         $discover = Discover::find(1);
         $title = Title::find(1);
         $images = Image::all();
-        $contact = Contact::all();
-        return view('back.image.index', compact('images','discover','title','video','contact'));
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.image.index', compact('images','discover','title','video','contact','map','logo','footer'));
     }
 
     /**

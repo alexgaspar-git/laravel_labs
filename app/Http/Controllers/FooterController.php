@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
+use App\Models\Discover;
 use App\Models\Footer;
+use App\Models\Logo;
+use App\Models\Map;
+use App\Models\Title;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class FooterController extends Controller
@@ -57,7 +63,14 @@ class FooterController extends Controller
      */
     public function edit(Footer $footer)
     {
-        //
+        $video = Video::find(1);
+        $discover = Discover::find(1);
+        $title = Title::find(1);
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.footer.index',compact('video', 'discover', 'title', 'contact','map', 'footer','logo'));
     }
 
     /**
@@ -69,7 +82,18 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
-        //
+        request()->validate([
+            "year"=>["required", "max:300"],
+        ]);
+
+        $footer->year = $request->year;
+        $footer->rights = $request->rights;
+        $footer->by = $request->by;
+        $footer->author = $request->author;
+        $footer->save();
+
+
+        return redirect('/admin/footer/'.$footer->id.'/edit')->with('success', 'Your changes have been saved.');
     }
 
     /**

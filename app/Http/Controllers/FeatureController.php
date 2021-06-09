@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Discover;
 use App\Models\Feature;
+use App\Models\Footer;
 use App\Models\Icon;
+use App\Models\Logo;
+use App\Models\Map;
 use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -23,7 +27,11 @@ class FeatureController extends Controller
         $title = Title::find(1);
         $featLeft = Feature::where('id','<', 4)->get();
         $featRight = Feature::where('id','>', 3)->get();  
-        return view('back.feature.index', compact('featLeft','featRight','video','discover','title'));
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.feature.index', compact('featLeft','featRight','video','discover','title','contact','map','logo','footer'));
     }
 
     /**
@@ -70,7 +78,11 @@ class FeatureController extends Controller
         $discover = Discover::find(1);
         $title = Title::find(1);
         $icons = Icon::all();
-        return view('back.feature.edit', compact('feature','video','discover','title','icons'));
+        $contact = Contact::find(1);
+        $map = Map::find(1);
+        $logo = Logo::find(1);
+        $footer = Footer::find(1);
+        return view('back.feature.edit', compact('feature','video','discover','title','icons','map','contact','logo','contact'));
     }
 
     /**
