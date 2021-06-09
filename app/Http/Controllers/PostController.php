@@ -13,6 +13,8 @@ use App\Models\Tag;
 use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -48,7 +50,8 @@ class PostController extends Controller
         $map = Map::find(1);
         $logo = Logo::find(1);
         $footer = Footer::find(1);
-        return view('back.blog.create',compact('video','discover','title','contact','map','logo','footer'));
+        $categories = Category::all();
+        return view('back.blog.create',compact('video','discover','title','contact','map','logo','footer','categories'));
     }
 
     /**
@@ -59,7 +62,25 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        
+        request()->validate([
+            "text"=> ["required","max:500"],
+            "title"=> ["required","max:50"],
+            "img"=> ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048']
+        ]);
+
+        $post = new Post();
+        $request->file('img')->storePublicly('img/','public');
+        $post->text = $request->text;
+        $post->title = $request->title;
+        $post->img = $request->file('img')->hashName();
+        $post->dateDay = date('d');
+        $post->dateMonth = date('M');
+        $post->dateYear = date('Y');
+        $post->category_id = $request->category;
+        $post->user_id = Auth::user()->id;
+        $post->validate = 0;
+        $post->save();
+        return redirect()->route('post.index')->with('success','Your changes have been saved.');
     }
 
     /**
@@ -109,6 +130,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Storage::disk('public')->delete('img/'.$post->img);
+        $post->delete();
+        return redirect()->back();
     }
 }

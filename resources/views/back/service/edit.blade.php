@@ -50,7 +50,7 @@
                                     {{$icon->icon}}
                                 </option>    
                             @endforeach
-                          </select>
+                        </select>
                         @error('icon')
                             <span class="invalid-feedback">
                                 <strong>Field required</strong>

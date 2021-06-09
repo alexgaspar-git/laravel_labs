@@ -36,6 +36,9 @@ class JobSeeder extends Seeder
             [
                 "job"=>"Web Designer"
             ],
+            [
+                "job"=>"Basic ass mf"
+            ]
         ]);
     }
 }
