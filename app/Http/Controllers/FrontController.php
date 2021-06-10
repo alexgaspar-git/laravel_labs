@@ -13,14 +13,12 @@ use App\Models\Map;
 use App\Models\Post;
 use App\Models\Service;
 use App\Models\Tag;
-use App\Models\TagPost;
 use App\Models\Testimonial;
 use App\Models\Title;
 use App\Models\Video;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
 
 class FrontController extends Controller
 {
@@ -35,11 +33,12 @@ class FrontController extends Controller
         $contact = Contact::find(1);
         $users = User::all();
         $title = Title::find(1);
+        $activeImage = Image::where('first', 1)->get();
         $subjects = FormContact::all();
         $ceo = User::where('job_id', 1)->get();
         $team = User::where('job_id', '>', 1)->get();
         $membre = $team->random(2);
-        return view('home', compact('video', 'services', 'service9', 'testimonials', 'discovers', 'images', 'logo', 'contact','title', 'subjects','users', 'ceo', 'membre'));
+        return view('home', compact('video', 'services', 'service9', 'testimonials', 'discovers', 'images', 'logo', 'contact','title', 'subjects','users', 'ceo', 'membre','activeImage'));
     }
     public function services(){
         $pageServices = Service::paginate(9)->fragment('paginate');

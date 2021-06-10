@@ -57,6 +57,7 @@ class ImageController extends Controller
         $request->file('link')->storePublicly('img/','public');
         $image = new Image();
         $image->link = $request->file('link')->hashName();
+        $image->first = 0;
         $image->save();
         return redirect()->route('image.index')->with('success','Your changes have been saved.');
     }
@@ -115,5 +116,20 @@ class ImageController extends Controller
         Storage::disk('public')->delete('img/'.$image->link);
         $image->delete();
         return redirect()->back();
+    }
+
+    public function firstImage(Image $image) {
+
+        $imagez = Image::all();
+
+        foreach ($imagez as $imaj) {
+            $imaj->first = 0;
+            $imaj->save();
+        }
+
+        $image->first = 1;
+        $image->save();
+
+        return redirect()->route('image.index')->with('success', "Nouvelle première image définie");
     }
 }

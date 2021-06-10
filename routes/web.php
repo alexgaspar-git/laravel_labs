@@ -65,6 +65,7 @@ Route::middleware(['auth'])->group(function (){
                 Route::resource('/admin/video', VideoController::class);
                 Route::resource('/admin/discover', DiscoverController::class);
                 Route::resource('/admin/image', ImageController::class);
+                Route::put('/admin/image/{image}/firstimg', [ImageController::class, 'firstImage'])->name('firstImage');
                 Route::resource('/admin/title', TitleController::class);
                 Route::resource('/admin/service', ServiceController::class);
                 Route::resource('/admin/feature', FeatureController::class);

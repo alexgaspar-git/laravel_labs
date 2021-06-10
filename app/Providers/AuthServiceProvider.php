@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('editUser', function($user,$post){
-            return $user->id == $post->user_id;
+            return $user->role_id == 1 || $user->id == $post->user_id;
         });
 
         Gate::define('removeTag', function($user){

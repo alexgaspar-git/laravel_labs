@@ -7,8 +7,13 @@
     </div>
     <!-- slider -->
     <div id="hero-slider" class="owl-carousel">
+        @forelse ($activeImage as $active)
+            <div class="item  hero-item" data-bg="img/{{$active->link}}"></div>
+        @empty
+            
+        @endforelse
         @foreach ($images as $image)
-        <div class="item  hero-item" data-bg="img/{{$image->link}}"></div>
+            <div class="item  hero-item" data-bg="img/{{$image->link}}"></div>
         @endforeach
     </div>
 </div>

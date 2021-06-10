@@ -1,6 +1,7 @@
 @extends('layouts.back')
 
 @section('content')
+    @include('layouts.flash')
     <div class="m-4 bordou shadow">
         <h1 class="text-center mb-3">Galèrie d'images</h1>
         <div class="row">
@@ -8,11 +9,22 @@
                 <div class="col-3 d-flex flex-column align-items-center">
                     <img src="/img/{{$image->link}}" height="200" class="galerie shadow">
                     <span>{{$image->link}}</span>
-                    <form action="{{route('image.destroy', $image->id)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="tresh btn btn-danger"><i class="fas fa-trash"></i></button>
-                    </form>
+                    <div class="d-flex">
+                        <form action="{{route('image.destroy', $image->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="tresh btn btn-danger"><i class="fas fa-trash"></i></button>
+                        </form>
+                        @if ($image->first == 1)
+                            <p>Première image</p>
+                        @else                    
+                            <form action="{{route('firstImage', $image->id)}}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="tresh btn btn-primary">First</button>
+                            </form>
+                        @endif
+                    </div>
                 </div>
             @endforeach
         </div>
