@@ -62,8 +62,9 @@
 }
 
 .grid {
+    margin-bottom: 10px;
     height: 10%;
-    width: 30%;
+    width: 75%;
     border: solid 1px;
 }
 

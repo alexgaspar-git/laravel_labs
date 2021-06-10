@@ -1,7 +1,11 @@
 @extends('layouts.back')
 @section('content')
+    @include('layouts.flash')
     <div class="bordou shadow">
         @foreach ($users as $user)   
+        <form action="{{route('changeRole', $user->id)}}" method="POST">
+            @csrf
+            @method('PUT')
             <div class="row m-4 shadow userrow">
                 <div class="col-1 d-flex justify-content-center align-items-center">
                     <img src="/img/avatar/{{$user->img}}" alt="" class="minimaj">
@@ -26,11 +30,7 @@
                 </div>
                 <div class="col-1 d-flex align-items-center">
                     @if ($user->validate == 0)
-                        <form action="{{route('verifyUser', $user->id)}}" method="POST" class="mx-2">
-                            @csrf
-                            @method('PUT')
-                            <button type="submit" class="tresh btn btn-dark">Validate</button>
-                        </form> 
+                        <p>Pas validé</p>
                     @else
                         <p>Validé</p>
                     @endif
@@ -63,6 +63,7 @@
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
+        </form>
         @endforeach
     </div>
 @endsection
