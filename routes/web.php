@@ -70,6 +70,8 @@ Route::resource('/admin/tag', TagController::class);
 Route::resource('/admin/category', CategoryController::class);
 //Validate
 Route::resource('/admin/verify', VerifyController::class);
+Route::put('/admin/user/{user}/validate', [UserController::class, 'verifyUser'])->name('verifyUser');
+Route::put('/admin/user/{user}/changerole', [UserController::class, 'changeRole'])->name('changeRole');
 
 
 // ------------NEWSLETTER------------

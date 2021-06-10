@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ValidateUser;
+use App\Mail\VerifyUserSender;
 use App\Models\Contact;
 use App\Models\Discover;
 use App\Models\Footer;
@@ -30,6 +32,7 @@ class VerifyController extends Controller
         $post = $id;
         $post->validate = 1;
         $post->save();
+
         return redirect()->back();
     }
 }

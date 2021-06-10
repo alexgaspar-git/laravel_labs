@@ -93,4 +93,10 @@ class CommentController extends Controller
         $comment->delete();
         return redirect()->back();
     }
+
+    public function verifyComment(Comment $comment){
+        $comment->validate = 1;
+        $comment->save();
+        return redirect()->back()->with('success', 'Comment validated.');
+    }
 }

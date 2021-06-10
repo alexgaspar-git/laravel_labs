@@ -55,7 +55,7 @@ class FrontController extends Controller
     public function blog(){
         $logo = Logo::find(1);
         $posts = Post::paginate(3)->fragment('paginate');
-        $categories = Category::all();
+        $categories = Category::where('id','!=', 1)->get();
         $tags = Tag::all();
         return view('front.blog', compact('logo', 'posts', 'categories','tags'));
     }
@@ -73,8 +73,10 @@ class FrontController extends Controller
         $pageBlogs = Post::paginate(3)->fragment('paginate');
         $categories = Category::all();
         $subjects = FormContact::all();
+        $tags = Tag::all();
+        $categories = Category::where('id','!=', 1);
         $comments = Comment::where('post_id', $post->id)->where('validate', 1)->get();
-        return view('front.blogpost', compact('logo','categories','subjects','comments','post','pageBlogs'));
+        return view('front.blogpost', compact('logo','categories','subjects','comments','post','pageBlogs','tags','categories'));
     }
     
     public function search(Request $request){

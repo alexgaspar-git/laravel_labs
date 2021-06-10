@@ -25,11 +25,11 @@
                     <!-- Post Author -->
                     <div class="author">
                         <div class="avatar">
-                            <img src={{asset('/img/team/'. $post->user->img)}} style="height: 100px; width: 100px; object-fit: cover; object-position: top;" alt="">
+                            <img src={{asset('/img/avatar/'. $post->user->img)}} style="height: 100px; width: 100px; object-fit: cover; object-position: top;" alt="">
                         </div>
                         <div class="author-info">
-                            <h2>Lore Williams, <span>Author</span></h2>
-                            <p>Vivamus in urna eu enim porttitor consequat. Proin vitae pulvinar libero. Proin ut hendrerit metus. Aliquam erat volutpat. Donec fermen tum convallis ante eget tristique. </p>
+                            <h2>{{$post->user->firstname}} {{$post->user->name}}, <span>Author</span></h2>
+                            <p>{{$post->user->description}} </p>
                         </div>
                     </div>
                     <!-- Post Comments -->
@@ -88,25 +88,18 @@
                 <div class="widget-item">
                     <h2 class="widget-title">Categories</h2>
                     <ul>
-                        <li><a href="#">Vestibulum maximus</a></li>
-                        <li><a href="#">Nisi eu lobortis pharetra</a></li>
-                        <li><a href="#">Orci quam accumsan </a></li>
-                        <li><a href="#">Auguen pharetra massa</a></li>
-                        <li><a href="#">Tellus ut nulla</a></li>
-                        <li><a href="#">Etiam egestas viverra </a></li>
+                        @foreach ($categories as $category)
+                            <li><a href="#">{{$category->category}}</a></li>      
+                        @endforeach
                     </ul>
                 </div>
                 <!-- Single widget -->
                 <div class="widget-item">
                     <h2 class="widget-title">Tags</h2>
                     <ul class="tag">
-                        <li><a href="">branding</a></li>
-                        <li><a href="">identity</a></li>
-                        <li><a href="">video</a></li>
-                        <li><a href="">design</a></li>
-                        <li><a href="">inspiration</a></li>
-                        <li><a href="">web design</a></li>
-                        <li><a href="">photography</a></li>
+                        @foreach ($tags as $tag)
+                            <li><a href="">{{$tag->tag}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <!-- Single widget -->

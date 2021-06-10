@@ -16,13 +16,13 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             [
-                "category"=>"test"
+                "category"=>"No Category"
             ],
             [
-                "category"=>"test"
+                "category"=>"testou"
             ],
             [
-                "category"=>"test"
+                "category"=>"testouni"
             ],
         ]);
     }

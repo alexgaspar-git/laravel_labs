@@ -8,6 +8,7 @@ use App\Models\Discover;
 use App\Models\Footer;
 use App\Models\Logo;
 use App\Models\Map;
+use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Title;
 use App\Models\Video;
@@ -30,7 +31,7 @@ class CategoryController extends Controller
         $logo = Logo::find(1);
         $footer = Footer::find(1);
         $tags = Tag::all();
-        $categories = Category::all();
+        $categories = Category::where('id','!=',1)->get();
         return view('back.category.index', compact('categories','video', 'discover', 'title', 'contact','map', 'footer','logo'));
     }
 
@@ -113,6 +114,14 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+
+        $categ = Post::where('category_id', $category->id)->get();
+
+        foreach ($categ as $cate){
+            $cate->category_id = 1;
+            $cate->save();
+        }
+
         $category->delete();
         return redirect()->back();
     }

@@ -15,7 +15,7 @@
                     <div class="form-row d-flex justify-content-center">
                         <div class="form-group col-8">
                             <label for="description">Description</label>
-                            <textarea type="text" style="font-size: 20px;" class="text-center form-control @error('description') is-invalid @enderror" name="description">{{Auth::user()->description}}</textarea>
+                            <textarea type="text" style="font-size: 20px;" class="form-control @error('description') is-invalid @enderror" name="description">{{Auth::user()->description}}</textarea>
                             @error('description')
                                 <span class="invalid-feedback">
                                     <strong>Field required</strong>
@@ -26,7 +26,7 @@
                     <div class="form-row d-flex justify-content-center">
                         <div class="form-group col-8">
                             <label for="Name">Name</label>
-                            <input type="text" style="font-size: 20px;" class="text-center form-control @error('name') is-invalid @enderror" name="name" value="{{Auth::user()->name}}">
+                            <input type="text" style="font-size: 20px;" class="form-control @error('name') is-invalid @enderror" name="name" value="{{Auth::user()->name}}">
                             @error('name')
                                 <span class="invalid-feedback">
                                     <strong>Field required</strong>
@@ -37,7 +37,7 @@
                     <div class="form-row d-flex justify-content-center">
                         <div class="form-group col-8">
                             <label for="firstname">First Name</label>
-                            <input type="text" style="font-size: 20px;" class="text-center form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{Auth::user()->firstname}}">
+                            <input type="text" style="font-size: 20px;" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{Auth::user()->firstname}}">
                             @error('firstname')
                                 <span class="invalid-feedback">
                                     <strong>Field required</strong>
@@ -48,7 +48,7 @@
                     <div class="form-row d-flex justify-content-center">
                         <div class="form-group col-8">
                             <label for="age">Age</label>
-                            <input type="number" style="font-size: 20px;" class="text-center form-control @error('age') is-invalid @enderror" name="age" value="{{Auth::user()->age}}">
+                            <input type="number" style="font-size: 20px;" class="form-control @error('age') is-invalid @enderror" name="age" value="{{Auth::user()->age}}">
                             @error('age')
                                 <span class="invalid-feedback">
                                     <strong>Field required</strong>
@@ -59,7 +59,7 @@
                     <div class="form-row d-flex justify-content-center">
                         <div class="form-group col-8">
                             <label for="email">Email</label>
-                            <input type="email" style="font-size: 20px;" class="text-center form-control @error('email') is-invalid @enderror" name="email" value="{{Auth::user()->email}}">
+                            <input type="email" style="font-size: 20px;" class="form-control @error('email') is-invalid @enderror" name="email" value="{{Auth::user()->email}}">
                             @error('age')
                                 <span class="invalid-feedback">
                                     <strong>Field required</strong>
@@ -70,7 +70,7 @@
                     <div class="form-row d-flex justify-content-center">
                         <div class="form-group col-8">
                             <label for="img">Image</label>
-                            <input type="file" style="font-size: 20px;" class="text-center form-control @error('img') is-invalid @enderror" name="img" value="{{Auth::user()->img}}">
+                            <input type="file" style="font-size: 20px;" class="form-control @error('img') is-invalid @enderror" name="img" value="{{Auth::user()->img}}">
                             @error('img')
                                 <span class="invalid-feedback">
                                     <strong>Field required</strong>

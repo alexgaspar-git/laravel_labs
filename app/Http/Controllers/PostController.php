@@ -104,12 +104,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $article = $post;
-        $logo = Logo::find(1);
-        $categories = Category::all();
-        $tags = Tag::all();
-        $footer = Footer::find(1);
-        return view('front.blogpost', compact('article', 'categories', 'tags', 'footer', 'logo'));
+        // $article = $post;
+        // $logo = Logo::find(1);
+        // $categories = Category::all();
+        // $tags = Tag::all();
+        // $categories = Category::all();
+        // $footer = Footer::find(1);
+        // return view('front.blogpost', compact('article', 'categories', 'tags', 'footer', 'logo', 'categories'));
     }
 
     /**

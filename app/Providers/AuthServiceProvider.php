@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -27,6 +28,14 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('editUser', function($user,$post){
             return $user->id == $post->user_id;
+        });
+
+        Gate::define('removeTag', function($user){
+            return $user->role_id == 1 || $user->role_id == 2;
+        });
+
+        Gate::define('removeCat', function($user){
+            return $user->role_id == 1 || $user->role_id == 2;
         });
     }
 }

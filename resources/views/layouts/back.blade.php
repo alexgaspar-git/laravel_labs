@@ -23,23 +23,30 @@
             </div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('dashboard')}}"><i class="fas fa-home"></i>  Home</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('image.index')}}"><i class="fas fa-home"></i>  Carousel</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('title.edit', $title->id)}}"><i class="fas fa-home"></i>  Title</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('video.edit', $video->id)}}"><i class="fas fa-home"></i>  Video</a>
+                @admin
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('image.index')}}"><i class="fas fa-dharmachakra"></i>  Carousel</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('title.edit', $title->id)}}"><i class="fas fa-heading"></i>  Title</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('video.edit', $video->id)}}"><i class="fab fa-youtube"></i>  Video</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('discover.edit', $discover->id)}}"><i class="fas fa-home"></i>  Discover</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('service.index')}}"><i class="fas fa-concierge-bell"></i>  Services</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('feature.index')}}"><i class="fas fa-concierge-bell"></i>  Feature</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('post.index')}}"><i class="fab fa-blogger-b"></i>  Blog</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('feature.index')}}"><i class="fas fa-mobile"></i> Feature</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('contact.edit', $contact->id)}}"><i class="fas fa-address-book"></i>  Contact</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('map.edit', $map->id)}}"><i class="fas fa-address-book"></i>  Map</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('footer.edit', $footer->id)}}"><i class="fas fa-address-book"></i>  Footer</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('category.index')}}"><i class="fas fa-address-book"></i>  Categories</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('tag.index')}}"><i class="fas fa-address-book"></i>  Tags</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('bin.index')}}"><i class="fas fa-address-book"></i>  Bin</a>
-                <a class="list-group-item list-group-item-action linkcolor" href="{{route('verify.index')}}"><i class="fas fa-address-book"></i>  Validate</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('map.edit', $map->id)}}"><i class="fas fa-map-pin"></i> Map</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('footer.edit', $footer->id)}}"><i class="fas fa-shoe-prints"></i> Footer</a>
+                @endadmin
+                @webmaster
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('verify.index')}}"><i class="fas fa-check-square"></i>  Validate</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('bin.index')}}"><i class="fas fa-dumpster"></i>  Bin</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('user.index')}}"><i class="fas fa-user-friends"></i>  Users</a>
+                @endwebmaster
+                @editor
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('post.index')}}"><i class="fas fa-feather-alt"></i> Blog</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('category.index')}}"><i class="fas fa-table"></i>  Categories</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('tag.index')}}"><i class="fas fa-tags"></i>  Tags</a>
+                @endeditor
                 <form action="{{route('logout')}}" method="post">
                     @csrf 
-                    <button type="submit" class="list-group-item list-group-item-action linkcolor">Logout </button>
+                    <button type="submit" class="list-group-item list-group-item-action linkcolor"><i class="fas fa-sign-out-alt"></i> Logout</button>
                 </form>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('home')}}"><i class="fas fa-angle-double-left"></i>  Back</a>
             </div>
