@@ -35,7 +35,7 @@ class PostController extends Controller
         $map = Map::find(1);
         $logo = Logo::find(1);
         $footer = Footer::find(1);
-        $posts = Post::all();
+        $posts = Post::where('bin', 0)->where('validate', 1)->get();
         return view('back.blog.index', compact('video','discover','title','contact','map','logo','footer','posts'));
     }
 
@@ -120,6 +120,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('editUser', $post);
         $video = Video::find(1);
         $discover = Discover::find(1);
         $title = Title::find(1);

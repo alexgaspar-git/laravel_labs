@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Discover;
 use App\Models\Footer;
-use App\Models\Job;
 use App\Models\Logo;
 use App\Models\Map;
+use App\Models\Post;
 use App\Models\Title;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
-class BackController extends Controller
+class VerifyController extends Controller
 {
     public function index(){
         $video = Video::find(1);
@@ -22,8 +22,14 @@ class BackController extends Controller
         $map = Map::find(1);
         $logo = Logo::find(1);
         $footer = Footer::find(1);
-        $jobs = Job::all();
-        return view('back.home', compact('video', 'discover', 'title', 'contact','map', 'footer','logo','jobs'));
+        $posts = Post::where('validate', 0)->where('bin', 0)->get();
+        return view('back.verify.index', compact('video','discover','title','contact','map','logo','footer','posts'));
+    }
+
+    public function valid(Post $id){
+        $post = $id;
+        $post->validate = 1;
+        $post->save();
+        return redirect()->back();
     }
 }
-

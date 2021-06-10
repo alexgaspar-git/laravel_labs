@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BackController;
+use App\Http\Controllers\BinController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DiscoverController;
@@ -13,8 +15,10 @@ use App\Http\Controllers\MapController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,7 +60,16 @@ Route::resource('/admin/map', MapController::class);
 Route::resource('/admin/footer', FooterController::class);
 //Blog
 Route::resource('/admin/post', PostController::class);
-// Route::delete('/admin/post/{id}/destroy', [PostController::class, 'softDelete'])->name('softdelete');
+Route::delete('/admin/post/{id}/destroy', [PostController::class, 'softDelete'])->name('softdelete');
+Route::delete('/admin/bin/{id}/restore', [BinController::class, 'softRestore'])->name('softRestore');
+Route::put('/admin/verify/{id}/valid', [VerifyController::class, 'valid'])->name('valid');
+//Bin
+Route::resource('/admin/bin', BinController::class);
+//Tags
+Route::resource('/admin/tag', TagController::class);
+Route::resource('/admin/category', CategoryController::class);
+//Validate
+Route::resource('/admin/verify', VerifyController::class);
 
 
 // ------------NEWSLETTER------------

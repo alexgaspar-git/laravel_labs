@@ -1,12 +1,12 @@
 @extends('layouts.back')
 
 @section('content')
-    <div class="m-4 bordou">
+    <div class="m-4 bordou shadow">
         <h1 class="text-center mb-3">Galèrie d'images</h1>
         <div class="row">
             @foreach ($images as $image)
                 <div class="col-3 d-flex flex-column align-items-center">
-                    <img src="/img/{{$image->link}}" height="200" class="galerie">
+                    <img src="/img/{{$image->link}}" height="200" class="galerie shadow">
                     <span>{{$image->link}}</span>
                     <form action="{{route('image.destroy', $image->id)}}" method="POST">
                         @csrf

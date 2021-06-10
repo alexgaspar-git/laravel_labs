@@ -33,6 +33,14 @@
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('contact.edit', $contact->id)}}"><i class="fas fa-address-book"></i>  Contact</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('map.edit', $map->id)}}"><i class="fas fa-address-book"></i>  Map</a>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('footer.edit', $footer->id)}}"><i class="fas fa-address-book"></i>  Footer</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('category.index')}}"><i class="fas fa-address-book"></i>  Categories</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('tag.index')}}"><i class="fas fa-address-book"></i>  Tags</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('bin.index')}}"><i class="fas fa-address-book"></i>  Bin</a>
+                <a class="list-group-item list-group-item-action linkcolor" href="{{route('verify.index')}}"><i class="fas fa-address-book"></i>  Validate</a>
+                <form action="{{route('logout')}}" method="post">
+                    @csrf 
+                    <button type="submit" class="list-group-item list-group-item-action linkcolor">Logout </button>
+                </form>
                 <a class="list-group-item list-group-item-action linkcolor" href="{{route('home')}}"><i class="fas fa-angle-double-left"></i>  Back</a>
             </div>
         </div>

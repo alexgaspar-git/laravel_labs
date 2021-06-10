@@ -33,20 +33,21 @@ class UserController extends Controller
             "name"=>['required','string','max:30'],
             "email"=>['required','string','max:30'],
             "age"=>['required','integer'],
-            "img"=>['required','string','max:30'],
-            "role"=>['required','string','max:30'],
+            // "img"=>['required','string','max:30'],
+            // "role"=>['required','string','max:30'],
             "job"=>['required','string','max:30'],
-            "testimonial"=>['string','max:255'],
+            // "testimonial"=>['string','max:255'],
         ]);
 
+
+        $request->file('img')->storePublicly('img/avatar/','public');
+        $user->img = $request->file('img')->hashName();
         $user->firstname = $request->firstname;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->age = $request->age;
-        $user->img = $request->img;
         $user->role->role = $request->role;
         $user->job->job = $request->job;
-        $user->testimonial->testimonial = $request->testimonial;
         $user->save();
         return redirect()->route('dashboard')->with('success','Your changes have been saved.');
     }

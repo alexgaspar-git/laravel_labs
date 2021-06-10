@@ -50,7 +50,7 @@
 .profilimage{
     border-radius: 50%;
     border: solid rgb(221, 221, 221);
-    height: 200px;
+    height: 500px;
 }
 
 .desc{
@@ -59,4 +59,15 @@
 
 .desc span{
     color:rgb(117, 115, 115)
+}
+
+.grid {
+    height: 10%;
+    width: 30%;
+    border: solid 1px;
+}
+
+.grid span {
+    font-weight: bold;
+    font-size: 20px;
 }

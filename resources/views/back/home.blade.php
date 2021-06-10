@@ -1,50 +1,106 @@
 @extends('layouts.back')
 
 @section('content')
-
-
-
-    {{-- <div class="container bordou">
-        <h1 class="text-center">Bienvenue au dashboard</h1>
-        <div class="row">
-            <div class="col-6 d-flex">
-                <img src="{{asset('img/avatar/'.Auth::user()->img)}}" alt="" class="profilimage">
-                <div class="mx-5 desc">
-                    <p><span>Prénom:</span> {{Auth::user()->firstname}}</p>
-                    <p><span>Nom:</span> {{Auth::user()->name}}</p>
-                    <p><span>Age:</span> {{Auth::user()->age}}</p>
-                    <p><span>Email:</span> {{Auth::user()->email}}</p>
-                    <p><span>Job:</span> {{Auth::user()->job->job}}</p>
-                    <p><span>Role:</span> {{Auth::user()->role->role}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    --}}
-
-
+    @include('layouts.flash')
     <div class="bordou">
-        <h1 class="text-center mb-4">Bienvenue au dashboard</h1>
+        <h1 class="text-center mb-5">Bienvenue au Dashboard</h1>
         <div class="row">
-            <div class="col-6 d-flex justify-content-center">
-                <img src="{{asset('img/avatar/'.Auth::user()->img)}}" alt="" class="profilimage">
-                <div class="mx-5 desc">
-                    <p><span>Prénom:</span> {{Auth::user()->firstname}}</p>
-                    <p><span>Nom:</span> {{Auth::user()->name}}</p>
-                    <p><span>Age:</span> {{Auth::user()->age}}</p>
-                    <p><span>Email:</span> {{Auth::user()->email}}</p>
-                    <p><span>Job:</span> {{Auth::user()->job->job}}</p>
-                    <p><span>Role:</span> {{Auth::user()->role->role}}</p>
-                </div>
+            <div class="col-6 d-flex align-items-center justify-content-center">
+                <img src="/img/avatar/{{Auth::user()->img}}" class="profilimage" alt="">
             </div>
             <div class="col-6">
-                <a href="{{route('user.edit', Auth::user()->id)}}" class="btn btn-primary">Modifiez votre profil</a>
+                <form action="{{route('user.update', Auth::user())}}" class="d-flex flex-column" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-row d-flex justify-content-center">
+                        <div class="form-group col-8">
+                            <label for="description">Description</label>
+                            <textarea type="text" style="font-size: 20px;" class="text-center form-control @error('description') is-invalid @enderror" name="description">{{Auth::user()->description}}</textarea>
+                            @error('description')
+                                <span class="invalid-feedback">
+                                    <strong>Field required</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-row d-flex justify-content-center">
+                        <div class="form-group col-8">
+                            <label for="Name">Name</label>
+                            <input type="text" style="font-size: 20px;" class="text-center form-control @error('name') is-invalid @enderror" name="name" value="{{Auth::user()->name}}">
+                            @error('name')
+                                <span class="invalid-feedback">
+                                    <strong>Field required</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-row d-flex justify-content-center">
+                        <div class="form-group col-8">
+                            <label for="firstname">First Name</label>
+                            <input type="text" style="font-size: 20px;" class="text-center form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{Auth::user()->firstname}}">
+                            @error('firstname')
+                                <span class="invalid-feedback">
+                                    <strong>Field required</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-row d-flex justify-content-center">
+                        <div class="form-group col-8">
+                            <label for="age">Age</label>
+                            <input type="number" style="font-size: 20px;" class="text-center form-control @error('age') is-invalid @enderror" name="age" value="{{Auth::user()->age}}">
+                            @error('age')
+                                <span class="invalid-feedback">
+                                    <strong>Field required</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-row d-flex justify-content-center">
+                        <div class="form-group col-8">
+                            <label for="email">Email</label>
+                            <input type="email" style="font-size: 20px;" class="text-center form-control @error('email') is-invalid @enderror" name="email" value="{{Auth::user()->email}}">
+                            @error('age')
+                                <span class="invalid-feedback">
+                                    <strong>Field required</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-row d-flex justify-content-center">
+                        <div class="form-group col-8">
+                            <label for="img">Image</label>
+                            <input type="file" style="font-size: 20px;" class="text-center form-control @error('img') is-invalid @enderror" name="img" value="{{Auth::user()->img}}">
+                            @error('img')
+                                <span class="invalid-feedback">
+                                    <strong>Field required</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-row d-flex justify-content-center">
+                        <div class="form-group col-8">
+                            <label for="job">Job</label>
+                            <select class="form-select form-control @error('job') is-invalid @enderror" name="job">
+                                <option value={{Auth::user()->job->id}} selected>{{Auth::user()->job->job}}</option>
+                                @foreach ($jobs as $job)
+                                    <option value="{{$job->id}}">
+                                        {{$job->job}}
+                                    </option>    
+                                @endforeach
+                            </select>
+                            @error('job')
+                                <span class="invalid-feedback">
+                                    <strong>Field required</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success">Sauvegarder les changements</button>
+                    </div>
+                </form>
             </div>
-            <form action="{{route('logout')}}" method="post">
-                @csrf 
-                <button type="submit" class="btn btn-primary">Logout </button>
-            </form>
         </div>
     </div>
-
 @endsection
