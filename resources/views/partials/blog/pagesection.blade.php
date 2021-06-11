@@ -15,8 +15,10 @@
                         <div class="post-content">
                             <h2 class="post-title">{{$post->title}}</h2>
                             <div class="post-meta">
-                                <a href="">{{$post->user->firstname}} {{$post->user->name}}</a>
                                 <a href="">{{$post->category->category}}</a>
+                                @foreach($post->tag as $tag)
+                                    <a href="">{{$tag->tag}}</a>
+                                @endforeach
                                 @if ($post->comment->where('post_id', "=", $post->id)->count() <= 1)
                                     <a href="">{{$post->comment->count()}} Comment</a>
                                 @elseif ($post->comment->where('post_id', "=", $post->id)->count() > 1)

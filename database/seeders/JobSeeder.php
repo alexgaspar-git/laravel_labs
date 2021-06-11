@@ -19,6 +19,9 @@ class JobSeeder extends Seeder
                 "job"=>"CEO"
             ],
             [
+                "job"=>"Member"
+            ],
+            [
                 "job"=>"CTO"
             ],
             [
@@ -36,9 +39,6 @@ class JobSeeder extends Seeder
             [
                 "job"=>"Web Designer"
             ],
-            [
-                "job"=>"Basic ass mf"
-            ]
         ]);
     }
 }

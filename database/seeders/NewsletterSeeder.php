@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class FormContactSeeder extends Seeder
+class NewsletterSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,12 @@ class FormContactSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('form_contacts')->insert([
+        DB::table('newsletters')->insert([
             [
-                "subject"=>"A l'aide"
+                "email"=>"eljefe23@hotmail.fr"
             ],
             [
-                "subject"=>"A propos de"
-            ],
-            [
-                "subject"=>"Engagez moi"
+                "email"=>"example@test.be"
             ],
         ]);
     }

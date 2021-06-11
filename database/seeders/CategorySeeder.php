@@ -19,10 +19,19 @@ class CategorySeeder extends Seeder
                 "category"=>"No Category"
             ],
             [
-                "category"=>"testou"
+                "category"=>"Vie"
             ],
             [
-                "category"=>"testouni"
+                "category"=>"Technologie"
+            ],
+            [
+                "category"=>"Nature"
+            ],
+            [
+                "category"=>"Politique"
+            ],
+            [
+                "category"=>"Jeux"
             ],
         ]);
     }

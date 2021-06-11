@@ -54,7 +54,7 @@ class FrontController extends Controller
     }
     public function blog(){
         $logo = Logo::find(1);
-        $posts = Post::paginate(3)->fragment('paginate');
+        $posts = Post::where('validate', 1)->where('bin', 0)->paginate(3)->fragment('paginate');
         $categories = Category::where('id','!=', 1)->get();
         $tags = Tag::all();
         return view('front.blog', compact('logo', 'posts', 'categories','tags'));
