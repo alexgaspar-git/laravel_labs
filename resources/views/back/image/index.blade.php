@@ -10,27 +10,27 @@
                     <img src="/img/{{$image->link}}" height="200" class="galerie shadow">
                     <span>{{$image->link}}</span>
                     <div class="d-flex">
-                        <form action="{{route('image.destroy', $image->id)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="tresh btn btn-danger"><i class="fas fa-trash"></i></button>
-                        </form>
                         @if ($image->first == 1)
-                            <p>Première image</p>
+                            <div class="btn btn-secondary mx-2">Première image</div>
                         @else                    
                             <form action="{{route('firstImage', $image->id)}}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                <button type="submit" class="tresh btn btn-primary">First</button>
+                                <button type="submit" class="tresh btn btn-dark mx-2">First</button>
                             </form>
                         @endif
+                        <form action="{{route('image.destroy', $image->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="tresh btn btn-dark mx-2"><i class="fas fa-trash"></i></button>
+                        </form>
                     </div>
                 </div>
             @endforeach
         </div>
         <form action="{{route('image.store')}}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
+            <div class="form-group my-3">
                 <label for="link">Votre Image:</label>
                 <input type="file" class="form-control-file @error('link') is-invalid @enderror" name="link">
                 @error('link')

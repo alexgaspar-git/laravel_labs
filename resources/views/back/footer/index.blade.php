@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-success">Sauvegarder les changements</button>
+            <button type="submit" class="btn btn-secondary">Sauvegarder les changements</button>
         </div>
     </form>
 @endsection

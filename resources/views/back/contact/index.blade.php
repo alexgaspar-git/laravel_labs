@@ -84,9 +84,9 @@
                     @enderror
                 </div>
             </div>
+            <div class="d-flex justify-content-center my-5">
+                <button type="submit" class="btn btn-secondary">Sauvegarder les changements</button>
             </div>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-success">Sauvegarder les changements</button>
             </div>
         </form>
     </div>
