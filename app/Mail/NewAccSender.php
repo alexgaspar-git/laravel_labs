@@ -2,14 +2,12 @@
 
 namespace App\Mail;
 
-
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Http\Client\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class VerifyUserSender extends Mailable
+class NewAccSender extends Mailable
 {
     use Queueable, SerializesModels;
     public $mail;
@@ -30,6 +28,6 @@ class VerifyUserSender extends Mailable
      */
     public function build()
     {
-        return $this->from('alexgaspar@labs.com')->markdown('mail.validateuser')->subject('Account validated');
+        return $this->from('alexgaspar@labs.com')->markdown('mail.newacc')->subject('Bienvenue');
     }
 }

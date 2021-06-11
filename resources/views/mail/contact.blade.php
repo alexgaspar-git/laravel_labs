@@ -1,5 +1,5 @@
-@component('mail::message')
-    {{$mail->name}}
-    {{$mail->mail}}
-    {{$mail->message}}
+@component('mail::message')  
+    <p>{{$mail->name}}</p>
+    <p>{{$mail->mail}}</p>
+    <p>{{$mail->message}}</p>
 @endcomponent

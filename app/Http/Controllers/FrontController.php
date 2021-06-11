@@ -13,6 +13,7 @@ use App\Models\Map;
 use App\Models\Post;
 use App\Models\Service;
 use App\Models\Tag;
+
 use App\Models\Testimonial;
 use App\Models\Title;
 use App\Models\Video;
@@ -26,7 +27,7 @@ class FrontController extends Controller
         $video = Video::find(1);
         $services = Service::inRandomOrder()->limit(3)->get();
         $service9 = Service::inRandomOrder()->limit(9)->get();
-        $testimonials = Testimonial::inRandomOrder()->limit(6)->get();
+        $testimonials = Testimonial::limit(6)->get();
         $discovers = Discover::all();
         $images = Image::all();
         $logo = Logo::find(1);

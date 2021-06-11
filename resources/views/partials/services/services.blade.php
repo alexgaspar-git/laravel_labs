@@ -11,7 +11,7 @@
         </div>
         <div class="row" id="paginate">
             <!-- single service -->
-            @foreach ($pageServices as $service)
+            @foreach ($pageServices->reverse() as $service)
             <div class="col-md-4 col-sm-6">
                 <div class="service">
                     <div class="icon">
@@ -25,7 +25,7 @@
             </div>
             @endforeach
             {{-- <div class="col-12 d-flex"></div> --}}
-            <p>{{$pageServices->links()}}</p>
+            <p>{{ $pageServices->links('vendor.pagination.default') }}</p>
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@
                 </div>
                 <div class="owl-carousel" id="testimonial-slide">
                     <!-- single testimonial -->
-                    @foreach ($testimonials as $testimonial)
+                    @foreach ($testimonials->reverse() as $testimonial)
                     <div class="testimonial">
                         <span>‘​‌‘​‌</span>
                         <p>{{$testimonial->quote}}</p>

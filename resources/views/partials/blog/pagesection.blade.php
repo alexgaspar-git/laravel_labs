@@ -3,7 +3,7 @@
         <div class="row" id="paginate">
             <div class="col-md-8 col-sm-7 blog-posts">
                 <!-- Post item -->
-                @foreach ($posts as $post)
+                @foreach ($posts->reverse() as $post)
                     <div class="post-item">
                         <div class="post-thumbnail">
                             <img src="/img/blog/{{$post->img}}" alt="">

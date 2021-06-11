@@ -3,10 +3,8 @@
 
 Bienvenue, {{$mail->email}}!
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+Vous êtes désormais inscrit(e) à la newsletter!
 
-Thanks,<br>
+A très bientôt,<br>
 {{ config('app.name') }}
 @endcomponent
