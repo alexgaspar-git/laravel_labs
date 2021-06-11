@@ -2,6 +2,7 @@
 @section('content')
     @include('layouts.flash')
     <div class="bordou shadow">
+        <a href="{{route('newsletter.index')}}" class="btn btn-primary">Newsletter Members</a>
         @foreach ($users as $user)   
         <form action="{{route('changeRole', $user->id)}}" method="POST">
             @csrf

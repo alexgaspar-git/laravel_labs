@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group(function (){
             Route::put('/admin/user/{user}/changerole', [UserController::class, 'changeRole'])->name('changeRole');
             Route::delete('/admin/bin/{id}/restore', [BinController::class, 'softRestore'])->name('softRestore');
             Route::middleware(['admin'])->group(function(){
+                Route::resource('/admin/newsletter', NewsletterController::class);
                 Route::resource('/admin/user', UserController::class);
                 Route::resource('/admin/video', VideoController::class);
                 Route::resource('/admin/discover', DiscoverController::class);
